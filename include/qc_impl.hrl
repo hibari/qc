@@ -1,4 +1,5 @@
 %%%-------------------------------------------------------------------
+%%% Copyright (C) 2013-2014 by Joseph Wayne Norton <norton@alum.mit.edu>
 %%% Copyright (c) 2009-2012 Gemini Mobile Technologies, Inc.  All rights reserved.
 %%%
 %%% Licensed under the Apache License, Version 2.0 (the "License");
@@ -21,7 +22,6 @@
 -define(qc_impl, true).
 
 -ifdef(QC_PROPER).
--define(QC_STATEM, true).
 -undef(PROPER).
 -define(PROPER, true).
 -undef(EQC).
@@ -29,7 +29,6 @@
 -endif.
 
 -ifdef(QC_TRIQ).
--undef(QC_STATEM).
 -undef(TRIQ).
 -define(TRIQ, true).
 -undef(EQC).
@@ -37,7 +36,6 @@
 -endif.
 
 -ifdef(QC_EQC).
--define(QC_STATEM, true).
 -undef(EQC).
 -define(EQC, true).
 -undef(PROPER).
@@ -45,7 +43,6 @@
 -endif.
 
 -ifdef(QC_EQCMINI).
--undef(QC_STATEM).
 -undef(EQC).
 -define(EQC, true).
 -undef(PROPER).
@@ -65,9 +62,6 @@
 
 -ifdef(TRIQ).
 -include_lib("triq/include/triq.hrl").
--ifdef(QC_STATEM).
--include_lib("triq/include/triq_statem.hrl").
--endif. %% -ifdef(QC_STATEM).
 -undef(QC).
 -define(QC, triq).
 -define(QC_GEN, triq_dom).
@@ -80,9 +74,6 @@
 
 -ifdef(EQC).
 -include_lib("eqc/include/eqc.hrl").
--ifdef(QC_STATEM).
--include_lib("eqc/include/eqc_statem.hrl").
--endif. %% -ifdef(QC_STATEM).
 -undef(QC).
 -define(QC, eqc).
 -define(QC_GEN, eqc_gen).

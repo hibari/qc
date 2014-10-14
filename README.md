@@ -1,11 +1,11 @@
 
 
-#QC - Wrappers for QuickCheck and Proper testing tools#
+# QC - Wrappers for QuickCheck and Proper testing tools #
 
+Copyright (c) 2013-2014 by Joseph Wayne Norton
 
-Copyright (c) 2012 by Gemini Mobile Technologies, Inc.
-
-__Authors:__ Joseph Wayne Norton ([`norton@alum.mit.edu`](mailto:norton@alum.mit.edu)).<p>QC is an Erlang application that provides a set of wrappers for
+__Authors:__ Joseph Wayne Norton ([`norton@alum.mit.edu`](mailto:norton@alum.mit.edu)).
+<p>QC is an Erlang application that provides a set of wrappers for
 QuickCheck and Proper testing tools.</p>
 <p><em>This repository is a "work-in-progress" - please contribute if you
 find QC useful.</em></p>
@@ -74,24 +74,18 @@ Documentation and Examples
 PropEr resize issue (<a href="https://github.com/manopapad/proper/issues/10">https://github.com/manopapad/proper/issues/10</a>)
 </p>
 </li>
-<li>
-<p>
-Support for Triq (<a href="http://krestenkrab.github.com/triq/">http://krestenkrab.github.com/triq/</a>)
-</p>
-</li>
 </ul>
 
 
 
 
-##Modules##
+## Modules ##
 
 
 <table width="100%" border="0" summary="list of modules">
-<tr><td><a href="https://github.com/norton/qc/blob/v1.0.0-rc2/doc/qc.md" class="module">qc</a></td></tr>
-<tr><td><a href="https://github.com/norton/qc/blob/v1.0.0-rc2/doc/qc_gen.md" class="module">qc_gen</a></td></tr>
-<tr><td><a href="https://github.com/norton/qc/blob/v1.0.0-rc2/doc/qc_gen_http.md" class="module">qc_gen_http</a></td></tr>
-<tr><td><a href="https://github.com/norton/qc/blob/v1.0.0-rc2/doc/qc_slave.md" class="module">qc_slave</a></td></tr>
-<tr><td><a href="https://github.com/norton/qc/blob/v1.0.0-rc2/doc/qc_statem.md" class="module">qc_statem</a></td></tr>
-<tr><td><a href="https://github.com/norton/qc/blob/v1.0.0-rc2/doc/qc_statem_impl.md" class="module">qc_statem_impl</a></td></tr></table>
+<tr><td><a href="https://github.com/norton/qc/blob/master/doc/qc.md" class="module">qc</a></td></tr>
+<tr><td><a href="https://github.com/norton/qc/blob/master/doc/qc_gen.md" class="module">qc_gen</a></td></tr>
+<tr><td><a href="https://github.com/norton/qc/blob/master/doc/qc_gen_http.md" class="module">qc_gen_http</a></td></tr>
+<tr><td><a href="https://github.com/norton/qc/blob/master/doc/qc_slave.md" class="module">qc_slave</a></td></tr>
+<tr><td><a href="https://github.com/norton/qc/blob/master/doc/qc_statem.md" class="module">qc_statem</a></td></tr></table>
 

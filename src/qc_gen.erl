@@ -1,4 +1,5 @@
 %%%-------------------------------------------------------------------
+%%% Copyright (C) 2013-2014 by Joseph Wayne Norton <norton@alum.mit.edu>
 %%% Copyright (c) 2008-2012 Gemini Mobile Technologies, Inc.  All rights reserved.
 %%%
 %%% Licensed under the Apache License, Version 2.0 (the "License");
@@ -205,34 +206,6 @@ qc_timeout(Attrs) when is_list(Attrs) ->
             choose(100000,10000000);
         [] ->
             qc_timeout()
-    end.
-
-
-%%%%%%
-%% expires
-qc_expires() ->
-    ?LET(Timeout,qc_timeout(),qc_time:make_expires(Timeout)).
-
-qc_expires(Attrs) when is_list(Attrs) ->
-    case X = lists:usort(Attrs) of
-        [noninfinite] ->
-            ?LET(Timeout,qc_timeout(X),qc_time:make_expires(Timeout));
-        [] ->
-            qc_timeout()
-    end.
-
-
-%%%%%%
-%% timeout_or_expires
-qc_timeout_or_expires() ->
-    ?LET(Timeout,qc_timeout(),oneof([Timeout,qc_time:make_expires(Timeout)])).
-
-qc_timeout_or_expires(Attrs) when is_list(Attrs) ->
-    case X = lists:usort(Attrs) of
-        [noninfinite] ->
-            ?LET(Timeout,qc_timeout(X),oneof([Timeout,qc_time:make_expires(Timeout)]));
-        [] ->
-            qc_timeout_or_expires()
     end.
 
 
