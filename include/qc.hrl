@@ -1,4 +1,5 @@
 %%%-------------------------------------------------------------------
+%%% Copyright (C) 2013-2014 by Joseph Wayne Norton <norton@alum.mit.edu>
 %%% Copyright (c) 2009-2012 Gemini Mobile Technologies, Inc.  All rights reserved.
 %%%
 %%% Licensed under the Apache License, Version 2.0 (the "License");
@@ -23,6 +24,10 @@
 -include("qc_impl.hrl").
 
 -import(qc_gen, [ulist/1]).
+
+-ifdef(TRIQ).
+-import(qc_gen, [largeint/0]).
+-endif.
 
 -endif. %% -ifdef(qc).
 

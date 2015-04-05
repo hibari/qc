@@ -1,4 +1,5 @@
 %%%-------------------------------------------------------------------
+%%% Copyright (C) 2013-2014 by Joseph Wayne Norton <norton@alum.mit.edu>
 %%% Copyright (c) 2009-2012 Gemini Mobile Technologies, Inc.  All rights reserved.
 %%%
 %%% Licensed under the Apache License, Version 2.0 (the "License");
@@ -24,12 +25,28 @@
 -undef(PROPER).
 -define(PROPER, true).
 -undef(EQC).
+-undef(TRIQ).
+-endif.
+
+-ifdef(QC_TRIQ).
+-undef(TRIQ).
+-define(TRIQ, true).
+-undef(EQC).
+-undef(PROPER).
 -endif.
 
 -ifdef(QC_EQC).
 -undef(EQC).
 -define(EQC, true).
 -undef(PROPER).
+-undef(TRIQ).
+-endif.
+
+-ifdef(QC_EQCMINI).
+-undef(EQC).
+-define(EQC, true).
+-undef(PROPER).
+-undef(TRIQ).
 -endif.
 
 -ifdef(PROPER).
@@ -38,16 +55,30 @@
 -define(QC, proper).
 -define(QC_GEN, proper_gen).
 -define(ALWAYS(_N,PROP), PROP).
+-define(SOMETIMES(_N,PROP), PROP).
 -undef(EQC).
+-undef(TRIQ).
 -endif. %% -ifdef(PROPER).
+
+-ifdef(TRIQ).
+-include_lib("triq/include/triq.hrl").
+-undef(QC).
+-define(QC, triq).
+-define(QC_GEN, triq_dom).
+-define(ALWAYS(_N,PROP), PROP).
+-define(SOMETIMES(_N,PROP), PROP).
+-define(SHRINK(G,_GS), G).
+-undef(EQC).
+-undef(PROPER).
+-endif. %% -ifdef(TRIQ).
 
 -ifdef(EQC).
 -include_lib("eqc/include/eqc.hrl").
--include_lib("eqc/include/eqc_statem.hrl").
 -undef(QC).
 -define(QC, eqc).
 -define(QC_GEN, eqc_gen).
 -undef(PROPER).
+-undef(TRIQ).
 -endif. %% -ifdef(EQC).
 
 -endif. %% -ifdef(qc_impl).

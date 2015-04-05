@@ -14,14 +14,42 @@
 %%% See the License for the specific language governing permissions and
 %%% limitations under the License.
 %%%
-%%% File    : qc_statem.hrl
-%%% Purpose : Wrapper for QuickCheck and Proper State Machine
+%%% File    : qc_statem_impl.hrl
+%%% Purpose : Wrapper for QuickCheck and Proper Implementations
 %%%-------------------------------------------------------------------
 
--ifndef(qc_statem).
--define(qc_statem, true).
+-ifndef(qc_statem_impl).
+-define(qc_statem_impl, true).
 
--include("qc.hrl").
--include("qc_statem_impl.hrl").
+-ifdef(QC_PROPER).
+-define(QC_STATEM, true).
+-endif.
 
--endif. %% -ifdef(qc_statem).
+-ifdef(QC_TRIQ).
+-undef(QC_STATEM). %% @TODO check compatibility
+-endif.
+
+-ifdef(QC_EQC).
+-define(QC_STATEM, true).
+-endif.
+
+-ifdef(QC_EQCMINI).
+-undef(QC_STATEM).
+-endif.
+
+-ifdef(PROPER).
+-endif. %% -ifdef(PROPER).
+
+-ifdef(TRIQ).
+-ifdef(QC_STATEM).
+-include_lib("triq/include/triq_statem.hrl").
+-endif. %% -ifdef(QC_STATEM).
+-endif. %% -ifdef(TRIQ).
+
+-ifdef(EQC).
+-ifdef(QC_STATEM).
+-include_lib("eqc/include/eqc_statem.hrl").
+-endif. %% -ifdef(QC_STATEM).
+-endif. %% -ifdef(EQC).
+
+-endif. %% -ifdef(qc_statem_impl).
